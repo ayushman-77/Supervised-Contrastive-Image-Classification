@@ -18,23 +18,15 @@ This notebook implements:
 
 ### Supervised Contrastive Loss
 
-Two forms of the loss are explored:
+The loss functions used in this project are based on supervised contrastive learning theory. The two main formulations are:
 
-- **Outer Summation Form:**
-  \[
-  \mathcal{L}_{\text{sup-out}} = \sum_{i \in I} \frac{-1}{|P(i)|} \sum_{p \in P(i)} \log \frac{\exp(z_i \cdot z_p / \tau)}{\sum_{a \in A(i)} \exp(z_i \cdot z_a / \tau)}
-  \]
-
-- **Inner Summation Form:**
-  \[
-  \mathcal{L}_{\text{sup-in}} = \sum_{i \in I} -\log \left( \frac{1}{|P(i)|} \sum_{p \in P(i)} \frac{\exp(z_i \cdot z_p / \tau)}{\sum_{a \in A(i)} \exp(z_i \cdot z_a / \tau)} \right)
-  \]
+![Supervised Contrastive Loss Equations](equations.png)
 
 Where:
-- \( z_i \) is the anchor embedding  
-- \( P(i) \) is the set of positives for anchor \( i \)  
-- \( A(i) \) is the set of all other examples in the batch except \( i \)  
-- \( \tau \) is the temperature scaling parameter
+- zᵢ is the anchor embedding  
+- P(i) is the set of positives for anchor i  
+- A(i) is the set of all other examples in the batch except i  
+- τ is the temperature scaling parameter
 
 ## 🚀 Features
 
